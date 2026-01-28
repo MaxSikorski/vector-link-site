@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector-Link Protocol | Machine Telepathy</title>
+    <meta name="description" content="The standard protocol for compressed AI-to-AI communication.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        surface: {
+                            50: '#fafafa',
+                            100: '#f4f4f5',
+                            900: '#18181b',
+                            950: '#09090b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lemon Squeezy -->
+    <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+
+    <style>
+        body { transition: background-color 0.3s ease, color 0.3s ease; }
+        
+        /* Modal Transitions */
+        .modal {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-zinc-900 dark:bg-surface-950 dark:text-white antialiased">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-40 top-0 border-b border-zinc-100 dark:border-zinc-800 bg-white/80 dark:bg-surface-950/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <!-- LOGO LINK FIX -->
+                <a href="#" class="font-bold tracking-tight text-lg hover:opacity-80 transition-opacity">Vector-Link</a>
+                <span class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-[10px] uppercase tracking-wider font-semibold text-zinc-500">Beta</span>
+            </div>
+            
+            <div class="flex items-center gap-6 text-sm font-medium">
+                <a href="#technology" class="text-zinc-500 hover:text-black dark:hover:text-white transition-colors">Technology</a>
+                <a href="#pricing" class="text-zinc-500 hover:text-black dark:hover:text-white transition-colors">Pricing</a>
+                
+                <!-- Dark Mode -->
+                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                    <svg id="moon-icon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg id="sun-icon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+
+                <!-- GitHub Link (UPDATED) -->
+                <a href="https://github.com/MaxSikorski/vector-link-site" target="_blank" class="opacity-80 hover:opacity-100 transition-opacity">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl sm:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-500">
+                Machine Telepathy.
+            </h1>
+            <p class="text-lg sm:text-xl text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                The universal adapter for multi-agent systems. Reduce bandwidth by <span class="text-black dark:text-white font-semibold">768x</span>. Zero semantic loss.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="lemonsqueezy-button bg-black hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black px-8 py-3 rounded-full font-semibold transition-all">
+                    Request Access
+                </a>
+                <a href="https://github.com/MaxSikorski/vector-link-site" class="border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900 px-8 py-3 rounded-full font-semibold transition-all">
+                    View Documentation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO SECTION -->
+    <section class="max-w-5xl mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden shadow-2xl">
+            <div class="bg-zinc-50 dark:bg-surface-900 p-8 border-r border-zinc-200 dark:border-zinc-800">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="ml-2 text-xs font-mono text-zinc-400">Input: Float32 Tensor (4KB)</span>
+                </div>
+                <div class="font-mono text-xs text-zinc-400 leading-relaxed break-all opacity-50">
+                    [0.1241, -0.9582, 0.3321, 1.0024, -0.5512, 0.8821, -0.0021, 0.4412, 
+                    0.1241, -0.9582, 0.3321, 1.0024, -0.5512, 0.8821, -0.0021, 0.4412...
+                    <br><br>
+                    <span class="text-zinc-900 dark:text-white font-bold">Latency: 450ms</span>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-black p-8 relative">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white dark:to-black opacity-10"></div>
+                <div class="flex items-center gap-2 mb-4">
+                     <span class="text-xs font-mono text-zinc-500">Output: Vector-Link (4 Bytes)</span>
+                </div>
+                <div class="font-mono text-2xl text-zinc-900 dark:text-white mt-12">
+                    <span class="text-zinc-300 dark:text-zinc-700">[</span>
+                    181, 22
+                    <span class="text-zinc-300 dark:text-zinc-700">]</span>
+                </div>
+                <div class="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-mono">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Latency: 1ms
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY GRID -->
+    <section id="technology" class="py-24 bg-zinc-50 dark:bg-surface-900 border-y border-zinc-100 dark:border-zinc-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <div class="w-10 h-10 bg-black dark:bg-white text-white dark:text-black rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Universal Adapter</h3>
+                    <p class="text-zinc-500 leading-relaxed text-sm">
+                        Seamlessly bridge Llama 3, Mistral, and GPT-based agents. Our 5.3MB kernel handles the translation layer automatically.
+                    </p>
+                </div>
+                <div>
+                    <div class="w-10 h-10 bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Residual Quantization</h3>
+                    <p class="text-zinc-500 leading-relaxed text-sm">
+                        Proprietary RVQ engine compresses vectors into discrete codebooks. Validated 99.8% semantic fidelity.
+                    </p>
+                </div>
+                <div>
+                    <div class="w-10 h-10 bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Enterprise Security</h3>
+                    <p class="text-zinc-500 leading-relaxed text-sm">
+                        Private cloud deployment via Render. API Keys managed via Supabase. Latency-optimized caching.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="py-24">
+        <div class="max-w-lg mx-auto px-6">
+            <div class="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors shadow-xl">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-xl font-bold">Pro Access</h3>
+                    <div class="text-right">
+                        <span class="text-3xl font-bold">$99</span>
+                        <span class="text-zinc-500 text-sm">/mo</span>
+                    </div>
+                </div>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-4 h-4 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Unlimited Vector Compression
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-4 h-4 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        99.9% Uptime SLA
+                    </li>
+                    <li class="flex items-center gap-3 text-sm">
+                        <svg class="w-4 h-4 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        Priority Email Support
+                    </li>
+                </ul>
+                <a href="https://your-store.lemonsqueezy.com/checkout/buy/YOUR_VARIANT_ID" class="lemonsqueezy-button block w-full bg-black dark:bg-white text-white dark:text-black text-center py-4 rounded-xl font-bold hover:opacity-90 transition-opacity">
+                    Start Subscription
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-zinc-100 dark:border-zinc-800">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span class="text-sm text-zinc-400">© 2026 Vector-Link Research.</span>
+            <div class="flex gap-6 text-sm text-zinc-500">
+                <!-- DYNAMIC MODAL TRIGGERS -->
+                <button onclick="toggleModal('privacy-modal')" class="hover:text-black dark:hover:text-white">Privacy</button>
+                <button onclick="toggleModal('terms-modal')" class="hover:text-black dark:hover:text-white">Terms</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DYNAMIC MODALS (Hidden by default) -->
+    
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onclick="toggleModal('privacy-modal')">
+        <div class="modal-content bg-white dark:bg-surface-900 border border-zinc-200 dark:border-zinc-700 w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded-2xl shadow-2xl p-8" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Privacy Policy</h2>
+                <button onclick="toggleModal('privacy-modal')" class="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="prose dark:prose-invert">
+                <p><strong>Last Updated: January 2026</strong></p>
+                <p>Vector-Link Research ("we", "us") respects your privacy. This policy outlines how we handle data.</p>
+                <h3>1. Data Collection</h3>
+                <p>We do not store the vectors you send to our API. All inference is ephemeral. We only store your Account Data (Email, API Keys) via Supabase for authentication.</p>
+                <h3>2. Analytics</h3>
+                <p>We use Lemon Squeezy for payments and basic usage metering. No personal tracking pixels are used on this site.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="terms-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onclick="toggleModal('terms-modal')">
+        <div class="modal-content bg-white dark:bg-surface-900 border border-zinc-200 dark:border-zinc-700 w-full max-w-2xl max-h-[80vh] overflow-y-auto rounded-2xl shadow-2xl p-8" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Terms of Service</h2>
+                <button onclick="toggleModal('terms-modal')" class="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="prose dark:prose-invert">
+                <p><strong>Effective Date: January 2026</strong></p>
+                <h3>1. Usage Limits</h3>
+                <p>Pro Access grants you unlimited standard usage. Abusive behavior (DDoS attempts, key sharing) will result in immediate termination.</p>
+                <h3>2. Liability</h3>
+                <p>The API is provided "as is". Vector-Link Research is not liable for downstream effects of compressed data in critical systems.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Dark Mode Logic
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // Modal Logic
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Re-enable scroll
+            } else {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock scroll
+            }
+        }
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const activeModals = document.querySelectorAll('.modal.active');
+                activeModals.forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
