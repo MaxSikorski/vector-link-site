@@ -11,9 +11,9 @@ Try it out here👉https://maxsikorski.github.io/vector-link-site/
 
 Vector-Link is a high-performance protocol designed to enable "Machine Telepathy." It compresses 4096-dimensional latent vectors into lightweight discrete codes, reducing network bandwidth by **768x** while preserving 99.8% semantic fidelity.
 
-> **Research Lab:** [Your Lab Name]  
-> **Read the Research:** [Link to your Blog Post]  
-> **Get API Keys:** [Link to your Website]
+> **Research Lab:** Max Sikorski AI Research Lab  
+> **Read the Research:** [Mind Of Max Blog](https://maxsikorski.github.io/mind-of-max-journal-blog/)  
+> **Get API Keys:** [Vector-Link: Machine Telepathy](https://maxsikorski.github.io/vector-link-site/)
 
 ---
 
@@ -35,7 +35,7 @@ VLP solves this using **Residual Vector Quantization (RVQ)** and a proprietary *
 
 ### 1. Get an API Key
 Access to the Vector-Link Cloud API is restricted to Pro subscribers.
-[Request Access Here](https://your-website-url.com/#pricing)
+([Request Access Here](https://vectorlink.lemonsqueezy.com/checkout))
 
 ### 2. Make a Request
 You can interact with the API using any standard HTTP client.
@@ -118,11 +118,10 @@ The VLP API runs on a distributed cloud cluster (Render) backed by a Supabase au
 
 ## 📞 Support
 
-*   **System Status:** [Link to your Status Page/Nostr]
+*   **System Status:** [Status](https://vector-link-api.onrender.com/)
 *   **Email:** Maxwell.Sikorski@gmail.com
 *   **Issues:** Please open a GitHub Issue for SDK bugs.
 
 ---
 
-© 2026 Vector-Link Research. All rights reserved.
-```
+© 2026 Vector-Link Research, Owned by Max Sikorski AI Research Lab. All rights reserved.
